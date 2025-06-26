@@ -1,14 +1,33 @@
 import { Fragment, useEffect, useState, WheelEvent } from "react";
 import "./App.css";
 import { items, rulerLabel } from "./items.ts";
+import type { Item } from "./items.ts";
 
 const viewSize = 1000;
 const zoomMultiplier = Math.pow(10, 1 / 10);
 const sliceSize = 5;
 
+function getAllTypes(items: Item[][]): string[] {
+  const types = new Set<string>();
+  items.flat().forEach((item: Item) => {
+    if (item.type) {
+      item.type.forEach((t) => types.add(t));
+    }
+  });
+  return Array.from(types);
+}
+
 function App() {
   const [sliceStart, setSliceStart] = useState(30);
   const [zoom, setZoom] = useState(0);
+  const [visibleTypes, setVisibleTypes] = useState<string[]>([]);
+  const allTypes = getAllTypes(items);
+
+  function handleTypeChange(type: string) {
+    setVisibleTypes((prev) =>
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+    );
+  }
 
   function handleZoom(increment: number) {
     setZoom((zoom) => {
@@ -27,31 +46,8 @@ function App() {
 
   function handleWheelEvent(event: WheelEvent) {
     const increment = Math.abs(event.deltaY) / -event.deltaY;
-
     handleZoom(increment);
   }
-
-  /**
-   * <Rectangle w={500} zoom={zoom} name="Grain of salt (0.5 mm)" />
-        <Rectangle w={100} zoom={zoom} name="Large cell (100 µm)" />
-        <Rectangle w={10} zoom={zoom} name="Small cell (10 µm)" />
-        <Rectangle
-          w={1}
-          zoom={zoom}
-          name="Bacteria / Mitochondria / Chromosome (1 µm)"
-        />
-        <Rectangle
-          w={0.1}
-          zoom={zoom}
-          name="Flu virus / Largest molecule (100 nm)"
-        />
-        <Rectangle w={0.01} zoom={zoom} name="Protein (10 nm)" />
-        <Rectangle w={0.001} zoom={zoom} name="Lipid (1 nm)" />
-        <Rectangle w={1e-4} zoom={zoom} name="Atom (0.1 nm)" />
-   */
-  useEffect(() => {
-    console.log(sliceStart);
-  }, [sliceStart]);
 
   return (
     <div style={{ display: "flex" }}>
@@ -76,26 +72,34 @@ function App() {
               Math.pow(10, i);
             return (
               <Fragment key={i}>
-                {ims.map((item) => {
-                  if (item.image) {
-                    return (
-                      <img
-                        key={item.name}
-                        src={item.image}
-                        alt={item.name}
-                        width={item.width * multiplier}
-                        style={{
-                          position: "absolute",
-                          left: item.left * multiplier,
-                          bottom: item.bottom * multiplier,
-                          clipPath: item.clipPath,
-                          ...(item.imageStyle || {}),
-                        }}
-                        title={item.name}
-                      />
-                    );
-                  }
-                })}
+                {(ims as Item[])
+                  .filter(
+                    (item: Item) =>
+                      visibleTypes.length === 0 ||
+                      (item.type &&
+                        item.type.some((t) => visibleTypes.includes(t))),
+                  )
+                  .map((item: Item) => {
+                    if (item.image) {
+                      return (
+                        <img
+                          key={item.name}
+                          src={item.image}
+                          alt={item.name}
+                          width={item.width * multiplier}
+                          style={{
+                            position: "absolute",
+                            left: item.left * multiplier,
+                            bottom: item.bottom * multiplier,
+                            clipPath: item.clipPath,
+                            ...(item.imageStyle || {}),
+                          }}
+                          title={item.name}
+                        />
+                      );
+                    }
+                    return null;
+                  })}
               </Fragment>
             );
           })}
@@ -127,7 +131,7 @@ function App() {
           >
             {rulerLabel[sliceStart - 2]}
           </div>
-          {Array.from({ length: 9 }).map((_, i) => {
+          {Array.from({ length: 9 }).map((_, i: number) => {
             return (
               <div
                 key={i}
@@ -156,6 +160,20 @@ function App() {
         >
           -
         </button>
+        <div style={{ marginTop: 20 }}>
+          <div>Show only:</div>
+          {allTypes.map((type: string) => (
+            <label key={type} style={{ display: "block" }}>
+              <input
+                type="checkbox"
+                checked={visibleTypes.includes(type)}
+                onChange={() =>
+                  handleTypeChange(type)}
+              />
+              {type}
+            </label>
+          ))}
+        </div>
       </div>
     </div>
   );

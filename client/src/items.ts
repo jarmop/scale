@@ -1,4 +1,4 @@
-type Item = {
+export type Item = {
   name: string;
   left: number;
   bottom: number;
@@ -6,6 +6,7 @@ type Item = {
   clipPath?: string;
   imageStyle?: React.CSSProperties;
   image: string;
+  type?: string[];
 };
 
 export const rulerLabel = [
@@ -407,6 +408,7 @@ export const items: Item[][] = [
     width: 155,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Morphology_and_ultrastructure_of_Ca._T._magnifica.jpg/1280px-Morphology_and_ultrastructure_of_Ca._T._magnifica.jpg",
+    type: ["bacteria"],
   }],
   // 1 mm
   [
@@ -531,24 +533,27 @@ export const items: Item[][] = [
       width: 150,
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Escherichia_coli_with_phages.jpg/250px-Escherichia_coli_with_phages.jpg",
+      type: ["virus", "bacteria"],
     },
     {
       name: "Pandoravirus salinus (one of the largest viruses)",
       left: 0,
       bottom: 128,
       width: 100,
-      // clipPath: "rect(3% 60% 31% 32%)",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/d/d9/Pandoravirus_salinus_298x300.png",
+      type: ["virus"],
     },
     {
-      name: "Prochlorococcus marinus (the smallest photosynthetic organism, produces much of the world's oxygen)",
+      name:
+        "Prochlorococcus marinus (the smallest photosynthetic organism, produces much of the world's oxygen)",
       left: -104,
       bottom: -19,
       width: 260,
       clipPath: "rect(45% 70% 80% 40%)",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Prochlorococcus_marinus.jpg/1280px-Prochlorococcus_marinus.jpg",
+      type: ["bacteria"],
     },
   ],
   // 1 μm
@@ -560,6 +565,7 @@ export const items: Item[][] = [
       width: 390,
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Bacteriophage_T4_Structural_Model_at_Atomic_Resolution.tif/lossy-page1-1280px-Bacteriophage_T4_Structural_Model_at_Atomic_Resolution.tif.jpg",
+      type: ["virus"],
     },
     {
       name: "Influenza virus",
@@ -569,6 +575,7 @@ export const items: Item[][] = [
       clipPath: "rect(54% 75% 71% 50%)",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/a/a4/EM_of_influenza_virus.jpg",
+      type: ["virus"],
     },
     {
       name: "Pelagibacter ubique (one of the smallest bacteria)",
@@ -578,6 +585,7 @@ export const items: Item[][] = [
       clipPath: "rect(3% 60% 31% 32%)",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/e/e1/Pelagibacter.jpg",
+      type: ["bacteria"],
     },
     {
       name: "Mycoplasma genitalium (bacteria)",
@@ -587,6 +595,7 @@ export const items: Item[][] = [
       clipPath: "rect(0 88% 100% 0)",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/3D_Whole_Cell_%283D-WC%29_model_of_a_Mycoplasma_genitalium_cell.jpg/1280px-3D_Whole_Cell_%283D-WC%29_model_of_a_Mycoplasma_genitalium_cell.jpg",
+      type: ["bacteria"],
     },
     {
       name: "SARS-CoV-2",
@@ -595,6 +604,7 @@ export const items: Item[][] = [
       width: 130,
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Coronavirus._SARS-CoV-2.png/1280px-Coronavirus._SARS-CoV-2.png",
+      type: ["virus"],
     },
   ],
   // 100 nm
