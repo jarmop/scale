@@ -498,7 +498,7 @@ export const items: Item[][] = [
     {
       name:
         "Scanning electron micrograph of blood cells. From left to right: human red blood cell, thrombocyte (platelet), leukocyte.",
-      left: 80,
+      left: 95,
       bottom: 0,
       width: 140,
       image:
@@ -519,10 +519,14 @@ export const items: Item[][] = [
       name:
         "Chromosome. Contains one 2m long DNA molecule coiled up. Each cell has identical set of 46 chromosomes (except for the sperm cell, which only has 23).",
       left: 500,
-      bottom: 0,
-      width: 300,
+      bottom: -35,
+      // width: 4500,
+      width: 900,
+      clipPath: "rect(50% 45% 100% 0)",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/4/46/Chromosome_icon.svg",
+        // "https://upload.wikimedia.org/wikipedia/commons/4/46/Chromosome_icon.svg",
+        // "https://upload.wikimedia.org/wikipedia/commons/1/1b/HumanChromosomesChromomycinA3.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/39/Condensation_and_resolution_of_human_sister_chromatids_in_early_mitosis.svg",
     },
     {
       name: "Mitochondria",
@@ -586,9 +590,9 @@ export const items: Item[][] = [
     },
     {
       name: "Pelagibacter ubique (one of the smallest bacteria)",
-      left: 30,
-      bottom: -168.5,
-      width: 300,
+      left: 1830,
+      bottom: -1292,
+      width: 2300,
       clipPath: "rect(3% 60% 31% 32%)",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/e/e1/Pelagibacter.jpg",

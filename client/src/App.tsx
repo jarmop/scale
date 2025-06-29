@@ -19,7 +19,7 @@ function getAllTypes(items: Item[][]): string[] {
 }
 
 function App() {
-  const [sliceStart, setSliceStart] = useState(30);
+  const [sliceStart, setSliceStart] = useState(34);
   const [zoom, setZoom] = useState(0);
   const [visibleTypes, setVisibleTypes] = useState<string[]>([]);
   const allTypes = getAllTypes(items);
