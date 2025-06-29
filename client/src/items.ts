@@ -490,19 +490,10 @@ export const items: Item[][] = [
     {
       name: "Prasinophyte algae. The smallest eukaryotic organism.",
       left: 0,
-      bottom: 80,
+      bottom: 60,
       width: 78,
       image:
         "https://upload.wikimedia.org/wikipedia/commons/c/cb/Pyramimonas_sp_color.jpg",
-    },
-    {
-      name:
-        "Scanning electron micrograph of blood cells. From left to right: human red blood cell, thrombocyte (platelet), leukocyte.",
-      left: 80,
-      bottom: 0,
-      width: 140,
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/2/24/Red_White_Blood_cells.jpg",
     },
     {
       name: "Sperm cell",
@@ -512,6 +503,23 @@ export const items: Item[][] = [
       image:
         "https://upload.wikimedia.org/wikipedia/commons/8/86/Sperm-egg.jpg",
     },
+    {
+      name:
+        "Scanning electron micrograph of blood cells. From left to right: human red blood cell, thrombocyte (platelet), leukocyte.",
+      left: 78,
+      bottom: 90,
+      width: 140,
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/2/24/Red_White_Blood_cells.jpg",
+    },
+    {
+      name: "Bone",
+      left: 90,
+      bottom: 0,
+      width: 126,
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Bertazzo_S_-_SEM_deproteined_bone_-_wistar_rat_-_x10k.tif/lossy-page1-1280px-Bertazzo_S_-_SEM_deproteined_bone_-_wistar_rat_-_x10k.tif.jpg",
+    },
   ],
   // 10 μm
   [
@@ -519,10 +527,14 @@ export const items: Item[][] = [
       name:
         "Chromosome. Contains one 2m long DNA molecule coiled up. Each cell has identical set of 46 chromosomes (except for the sperm cell, which only has 23).",
       left: 500,
-      bottom: 0,
-      width: 300,
+      bottom: -35,
+      // width: 4500,
+      width: 900,
+      clipPath: "rect(50% 45% 100% 0)",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/4/46/Chromosome_icon.svg",
+        // "https://upload.wikimedia.org/wikipedia/commons/4/46/Chromosome_icon.svg",
+        // "https://upload.wikimedia.org/wikipedia/commons/1/1b/HumanChromosomesChromomycinA3.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/39/Condensation_and_resolution_of_human_sister_chromatids_in_early_mitosis.svg",
     },
     {
       name: "Mitochondria",
@@ -586,9 +598,9 @@ export const items: Item[][] = [
     },
     {
       name: "Pelagibacter ubique (one of the smallest bacteria)",
-      left: 30,
-      bottom: -168.5,
-      width: 300,
+      left: 1830,
+      bottom: -1292,
+      width: 2300,
       clipPath: "rect(3% 60% 31% 32%)",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/e/e1/Pelagibacter.jpg",
