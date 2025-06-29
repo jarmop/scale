@@ -377,7 +377,7 @@ export const items: Item[][] = [
   [{
     name: "Fairyfly",
     // left: 195.5,
-    left: 500,
+    left: 510,
     bottom: -90,
     width: 380,
     clipPath: "rect(0 100% 76% 0)",
@@ -385,7 +385,7 @@ export const items: Item[][] = [
       "https://upload.wikimedia.org/wikipedia/commons/c/ca/Mymarilla_wollastoni.jpg",
   }, {
     name: "Pharaoh ant",
-    left: 285,
+    left: 300,
     bottom: 0,
     width: 210,
     imageStyle: {
@@ -395,7 +395,7 @@ export const items: Item[][] = [
       "https://upload.wikimedia.org/wikipedia/commons/7/71/Monomorium_pharaonis_casent0173986_profile_1.jpg",
   }, {
     name: "Sugar crystals",
-    left: -133,
+    left: -118,
     bottom: -293,
     width: 1100,
     clipPath: "rect(47% 38% 60% 23%)",
@@ -421,14 +421,21 @@ export const items: Item[][] = [
         // "https://upload.wikimedia.org/wikipedia/commons/4/46/Caenorhabditis_elegans_hermaphrodite_adult-en.svg",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Adult_Caenorhabditis_elegans.jpg/1280px-Adult_Caenorhabditis_elegans.jpg",
     },
-
     {
       name: "Tardigrade",
-      left: 300,
+      left: 850,
       bottom: 0,
       width: 500,
       image:
         "https://upload.wikimedia.org/wikipedia/commons/2/20/SEM_image_of_Milnesium_tardigradum_in_active_state_-_journal.pone.0045682.g001-2_%28white_background%29.png",
+    },
+    {
+      name: "C. elegans cell and nucleus sizes",
+      left: 280,
+      bottom: 0,
+      width: 610,
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/0/08/C_elegans_cell_and_nucleus_sizes.svg",
     },
     {
       name: "Human egg cell",

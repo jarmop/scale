@@ -3,6 +3,7 @@ import "./App.css";
 import { items, rulerLabel } from "./items.ts";
 import type { Item } from "./items.ts";
 
+const viewWidth = 1600;
 const viewSize = 1000;
 const zoomMultiplier = Math.pow(10, 1 / 10);
 const sliceSize = 5;
@@ -55,7 +56,7 @@ function App() {
         style={{
           position: "relative",
           overflow: "hidden",
-          width: viewSize,
+          width: viewWidth,
           height: viewSize + 25,
         }}
         onWheel={handleWheelEvent}
